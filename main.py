@@ -1,16 +1,26 @@
 
-def second_task(name,age):
-    try:
-        if age < 0 or age > 130:
-            raise ValueError('wrong age')
-        if not isinstance(name,str):
-            raise ValueError('wrong name format')
-    except ValueError as e:
-        print('Error:',e)
-    return f'{name} your age is {age}'
 
-second_task('alex',131)
-second_task(11,130)
-second_task(11,23)
-b1 = second_task('alex',48)
-print(b1)
+def third_task():
+    try:
+        print('Input numbers. To stop, type a non-numeric value.')
+        number_list = []
+        summ = 0
+        while True:
+            a = input('Input a number: ')
+            if not a:
+                break
+            try:
+                number = int(a)
+            except ValueError:
+                break
+            if number < 0:
+                raise ValueError('Negative number detected.')
+            summ += number
+            number_list.append(number)
+        print(f'Sum of {number_list}: {summ}')
+        return summ
+    except ValueError as e:
+        print('Error:', e)
+
+third_task()
+
