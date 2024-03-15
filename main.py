@@ -1,12 +1,16 @@
 
-def first_task():
+def second_task(name,age):
     try:
-        name = str(input('input your name'))
-        age = int(input('input your age'))
         if age < 0 or age > 130:
             raise ValueError('wrong age')
-        print(f"Привіт, {name}! Твій вік — {age}")
+        if not isinstance(name,str):
+            raise ValueError('wrong name format')
     except ValueError as e:
-        print('Error',e)
+        print('Error:',e)
+    return f'{name} your age is {age}'
 
-
+second_task('alex',131)
+second_task(11,130)
+second_task(11,23)
+b1 = second_task('alex',48)
+print(b1)
