@@ -1,26 +1,35 @@
 
 
-def third_task():
+def fourth_task(number_list):
     try:
-        print('Input numbers. To stop, type a non-numeric value.')
-        number_list = []
         summ = 0
-        while True:
-            a = input('Input a number: ')
-            if not a:
-                break
-            try:
-                number = int(a)
-            except ValueError:
-                break
-            if number < 0:
-                raise ValueError('Negative number detected.')
-            summ += number
-            number_list.append(number)
-        print(f'Sum of {number_list}: {summ}')
-        return summ
+        for element in number_list:
+            if not isinstance(element, int):
+                raise ValueError('not integer value found')
+            if element < 0:
+                raise ValueError('negative number found')
     except ValueError as e:
-        print('Error:', e)
+        print('error:',e)
+    return sum(number_list)
 
-third_task()
+def fourth_task_b(llist):
+        summ = 0
+        for element in llist:
+            if not isinstance(element, int):
+                raise ValueError('not integer value found')
+            if element < 0:
+                raise ValueError('negative number found')
+        return sum(llist)
 
+list_1 = [1,2,5,8,5]
+list_2 = [1,4 ,-3]
+a = fourth_task(list_1)
+fourth_task(list_2)
+print(a)
+
+try:
+    input_list = [1, 2, 3, 4, 5]
+    result = fourth_task_b(list_2)
+    print('Sum:', result)
+except ValueError as e:
+    print('Error:', e)
